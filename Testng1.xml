@@ -1,0 +1,31 @@
+<suite name="Suite">
+
+    <test name="tst_1">
+
+	<parameter name="itemType" value="basic"/>
+
+	<parameter name="Price" value="250"/>
+
+		<classes>
+
+		    <class name="ComcastTest" />
+
+		</classes>
+
+    </test>
+    
+     <test name="tst_2">
+
+	<parameter name="itemType" value="luxury"/>
+
+	<parameter name="Price" value="100"/>
+
+		<classes>
+
+		    <class name="ComcastTest" />
+
+		</classes>
+
+    </test>
+
+</suite>
