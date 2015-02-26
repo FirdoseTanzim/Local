@@ -1,0 +1,56 @@
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+import org.testng.annotations.Parameters;
+
+public class ComcastTest {
+private static double tax = 0;
+	
+
+  @Test 
+
+  @Parameters({ "itemType", "Price" })
+
+  public void test(String itemType, String Price)
+  {
+
+	  	double priceD = Double.parseDouble(Price);
+		double cost = 0;
+		
+		if(itemType.toUpperCase().matches("BASIC"))
+		{
+			tax=CalculateTax(priceD, true) ;
+		}
+		else if(itemType.toUpperCase().matches("LUXURY"))
+		{
+			tax = CalculateTax(priceD, false);
+		}
+		else
+		{
+			System.out.println("Invalid");
+		}
+		cost = priceD + tax;
+		System.out.println("Total cost with Tax=" + cost);	
+  }
+	
+		private double CalculateTax(double price, boolean flag)
+		{
+			if(price != 0)
+			{
+				if(flag)
+				{
+					tax = price*0.01;
+				}
+				else
+				{
+					tax = price*0.09;	
+				}
+			}
+			return tax;
+		}
+
+  }
+
